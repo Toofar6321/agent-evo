@@ -1,0 +1,42 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE and Editors
+.vs/
+.vscode/
+.idea/
+.zed/
+
+# Rust
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Build output
+dist/
+build/
+output/
+
+# Environment files
+.env*
+!.env.example
+
+# Logs
+logs/
+*.log
+*.log*
+
+# Backup and temporary files
+*.bak
+*.backup
+*.tmp
+tmp/
+temp/
+
+# Other
+.ignore*/
+LLM.md
+.claude

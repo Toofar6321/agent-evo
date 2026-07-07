@@ -1,0 +1,33 @@
+[package]
+name = "link-section"
+version = "0.15.0"
+authors.workspace = true
+edition = "2021"
+description = "Link-time initialized slices for Rust, with full support for Linux, macOS, Windows, WASM and many more platforms."
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+categories = ["development-tools::build-utils", "no-std", "no-std::no-alloc", "embedded", "development-tools::procedural-macro-helpers"]
+
+[features]
+default = ["proc_macro", "std"]
+proc_macro = ["dep:linktime-proc-macro"]
+std = []
+
+[dependencies]
+linktime-proc-macro = { workspace = true, optional = true, features = ["link_section"] }
+
+[dev-dependencies]
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = [
+    'cfg(linktime_used_linker)',
+] }
+
+[[example]]
+name = "link-section-example"
+path = "examples/example.rs"
+
+[[example]]
+name = "link-section-const"
+path = "examples/const.rs"

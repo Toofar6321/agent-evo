@@ -1,0 +1,11 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Opens received files with an appropriate CLI tool
+file="$1"
+ext="${file##*.}"
+
+case "$ext" in
+  zip)   unzip -l "$file" ;;
+  json)  cat "$file" | python3 -m json.tool ;;
+  js|ts|tsx|jsx|md|txt|sh|css|html)  cat "$file" ;;
+  *)     file "$file" && cat "$file" ;;
+esac
